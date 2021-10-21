@@ -1,7 +1,0 @@
-version: "3.9"
-services:
-  shell:
-    image: node:17
-    volumes: [ .:/app ]
-    working_dir: /app
-    command: bash
