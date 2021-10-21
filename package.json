@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "eslint": "eslint ./"
   },
   "devDependencies": {
     "eslint": "^8.0.1",
