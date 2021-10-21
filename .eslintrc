@@ -1,0 +1,11 @@
+{
+  "plugins": [
+    "jest"
+  ],
+  "env": {
+    "browser": false,
+    "commonjs": true,
+    "es6": true,
+    "jest/globals": true
+  }
+}
