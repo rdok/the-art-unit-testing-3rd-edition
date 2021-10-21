@@ -4,7 +4,13 @@
   "description": "A first unit test",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watchAll"
+  },
   "devDependencies": {
+    "eslint": "^8.0.1",
+    "eslint-plugin-jest": "^25.2.2",
     "jest": "^27.3.1"
   }
 }
