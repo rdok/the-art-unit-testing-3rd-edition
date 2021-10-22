@@ -48,7 +48,7 @@ describe(`${PasswordVerifier.name}`, () => {
   });
 
   describe(`${PasswordVerifier.prototype.addRule.name}`, () => {
-    it(`adds a rule`, () => {
+    it("adds a rule", () => {
       const passwordVerifier = new PasswordVerifier();
       passwordVerifier.addRule("a rule");
       expect(passwordVerifier.rules).toEqual(["a rule"]);
