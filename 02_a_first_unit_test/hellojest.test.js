@@ -1,3 +1,3 @@
-test('hello jest', () => {
-  expect('hello').toEqual('hello');
+test("hello jest", () => {
+  expect("hello").toEqual("hello");
 });

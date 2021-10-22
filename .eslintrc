@@ -1,7 +1,5 @@
 {
-  "plugins": [
-    "jest"
-  ],
+  "plugins": ["jest"],
   "env": {
     "browser": false,
     "commonjs": true,
