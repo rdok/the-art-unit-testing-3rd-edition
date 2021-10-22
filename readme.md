@@ -4,9 +4,7 @@
 Practical implementation of the latest version book version targeted in JavaScript.
 
 ## Development
-```
-docker-compose run --rm shell
-```
+See `scripts@package.json`
 
 [badge]: https://github.com/rdok/the-art-unit-testing-in-js-3rd/actions/workflows/ci.yml/badge.svg
 [ci]: https://github.com/rdok/the-art-unit-testing-in-js-3rd/actions/workflows/ci.yml
