@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "test:watch": "jest --watchAll --verbose",
+    "test:watch": "jest --watch --verbose",
     "eslint": "eslint ./",
     "prettier": "prettier --check .",
     "prettier:fix": "prettier --write ."
