@@ -1,12 +1,12 @@
 const { PasswordVerifier } = require("./password-verifier");
+const { makeFailingRule, makePassingRule } = require("../jest/makers");
 
 describe(`${PasswordVerifier.name}`, () => {
   describe(`${PasswordVerifier.prototype.verify.name}`, () => {
     describe("with a failing rule", () => {
       const passwordVerifier = new PasswordVerifier();
-      const fakeRule = () => ({ passed: false, reason: "fake reason" });
-      passwordVerifier.addRule(fakeRule);
-      const errors = passwordVerifier.verify("failing rule", [fakeRule]);
+      passwordVerifier.addRule(makeFailingRule("fake reason"));
+      const errors = passwordVerifier.verify("failing rule");
 
       it("has an error message based on the rule reason", () => {
         expect(errors[0]).toContain("fake reason");
@@ -18,9 +18,8 @@ describe(`${PasswordVerifier.name}`, () => {
     });
     describe("with a passing rule", () => {
       const passwordVerifier = new PasswordVerifier();
-      const fakeRule = () => ({ passed: true, reason: "fake reason" });
-      passwordVerifier.addRule(fakeRule);
-      const errors = passwordVerifier.verify("passing rule", [fakeRule]);
+      passwordVerifier.addRule(makePassingRule());
+      const errors = passwordVerifier.verify("passing rule");
 
       it("has no errors", () => {
         expect(errors.length).toBe(0);
@@ -29,14 +28,9 @@ describe(`${PasswordVerifier.name}`, () => {
 
     describe("with a failing and a passing rule", () => {
       const passwordVerifier = new PasswordVerifier();
-      const fakeRulePass = () => ({ passed: true, reason: "fake reason" });
-      const fakeRuleFail = () => ({ passed: false, reason: "fake reason" });
-      passwordVerifier.addRule(fakeRulePass);
-      passwordVerifier.addRule(fakeRuleFail);
-      const errors = passwordVerifier.verify("passing rule", [
-        fakeRulePass,
-        fakeRuleFail,
-      ]);
+      passwordVerifier.addRule(makePassingRule());
+      passwordVerifier.addRule(makeFailingRule("fake reason"));
+      const errors = passwordVerifier.verify("passing rule");
 
       it("error text belongs to failed rule", () => {
         expect(errors[0]).toContain("fake reason");
