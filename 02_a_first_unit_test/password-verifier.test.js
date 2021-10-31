@@ -3,6 +3,7 @@ const {
   makeVerifierWithFailingRule,
   makerVerifierWithPassingRule,
   makeVerifierWithFailingAndPassingRule,
+  makeVerifier,
 } = require("../jest/password-verifier-factory");
 
 describe(`${PasswordVerifier.name}.${PasswordVerifier.prototype.verify.name}`, () => {
@@ -38,6 +39,12 @@ describe(`${PasswordVerifier.name}.${PasswordVerifier.prototype.verify.name}`, (
       const errors = passwordVerifier.verify("passing rule");
       expect(errors.length).toBe(1);
     });
+  });
+  test("without any rules, it should error", () => {
+    const verifier = makeVerifier();
+    expect(() => verifier.verify("any input")).toThrowError(
+      /No rules configured/
+    );
   });
 });
 
